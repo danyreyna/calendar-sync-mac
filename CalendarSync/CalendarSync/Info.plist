@@ -1,0 +1,4 @@
+{
+	CFBundleIdentifier = "com.danyreyna.CalendarSync";
+	CFBundleName = CalendarSync;
+}
