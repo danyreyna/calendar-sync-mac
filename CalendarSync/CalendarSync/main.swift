@@ -70,7 +70,7 @@ func getCalendar(named name: String, in store: EKEventStore) -> Result<
 func getDateRange() -> (start: Date, end: Date) {
     let startOfDay = Calendar.current.startOfDay(for: Date())
     let thirtyDaysFromNow = Calendar.current.date(
-        byAdding: .day, value: 30, to: startOfDay
+        byAdding: .day, value: 30, to: Date()
     )!
     return (startOfDay, thirtyDaysFromNow)
 }
