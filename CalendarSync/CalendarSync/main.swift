@@ -150,7 +150,10 @@ func syncCalendars(source: String, target: String, isDryRun: Bool) {
         }
 
         guard granted else {
-            print("[\(dateFormatter.string(from: Date()))] Access to calendar was denied.", to: &standardError)
+            print(
+                "[\(dateFormatter.string(from: Date()))] Access to calendar was denied.",
+                to: &standardError
+            )
             exit(1)
         }
 
@@ -160,7 +163,10 @@ func syncCalendars(source: String, target: String, isDryRun: Bool) {
                 in: eventStore
             )
         else {
-            print("[\(dateFormatter.string(from: Date()))] Source calendar \"\(source)\" not found.", to: &standardError)
+            print(
+                "[\(dateFormatter.string(from: Date()))] Source calendar \"\(source)\" not found.",
+                to: &standardError
+            )
             exit(1)
         }
         guard
@@ -169,7 +175,10 @@ func syncCalendars(source: String, target: String, isDryRun: Bool) {
                 in: eventStore
             )
         else {
-            print("[\(dateFormatter.string(from: Date()))] Target calendar \"\(target)\" not found.", to: &standardError)
+            print(
+                "[\(dateFormatter.string(from: Date()))] Target calendar \"\(target)\" not found.",
+                to: &standardError
+            )
             exit(1)
         }
 
@@ -207,7 +216,10 @@ func syncCalendars(source: String, target: String, isDryRun: Bool) {
                         event: createdEvent
                     )
                 case .failure(let error):
-                    print("[\(dateFormatter.string(from: Date()))] Failed to create event: \(error)", to: &standardError)
+                    print(
+                        "[\(dateFormatter.string(from: Date()))] Failed to create event: \(error)",
+                        to: &standardError
+                    )
                 }
             }
         }
@@ -233,7 +245,10 @@ func syncCalendars(source: String, target: String, isDryRun: Bool) {
                         event: event
                     )
                 case .failure(let error):
-                    print("[\(dateFormatter.string(from: Date()))] Failed to delete event: \(error)", to: &standardError)
+                    print(
+                        "[\(dateFormatter.string(from: Date()))] Failed to delete event: \(error)",
+                        to: &standardError
+                    )
                 }
             }
         }
