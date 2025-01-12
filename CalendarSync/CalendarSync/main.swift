@@ -195,10 +195,13 @@ func syncCalendars(source: String, target: String, isDryRun: Bool) {
         )
 
         let targetEventsKeys = targetEvents.map(getEventKey)
-        let sourceEventsNotInTarget =
+        let originalSourceEventsNotInTarget =
             sourceEvents
-            .filter { !targetEventsKeys.contains(getEventKey($0)) }
-        for eventToCreate in sourceEventsNotInTarget {
+            .filter { event in
+                !(event.notes?.contains(syncedMarker) ?? false)
+                    && !targetEventsKeys.contains(getEventKey(event))
+            }
+        for eventToCreate in originalSourceEventsNotInTarget {
             if isDryRun {
                 printEventDetails(
                     prefix: "Would create event",
