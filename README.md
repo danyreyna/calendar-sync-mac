@@ -77,6 +77,11 @@ cp com.danyreyna.CalendarSync.plist com.danyreyna.calendarsync.outlook_to_gmail.
 3. You can also uncomment the `--dry-run` `<string>` tag for testing and debugging purposes.
 4. By default, the agent will run every hour from 8am to 5pm. Edit the `StartCalendarInterval` key to your liking.
 
+#### Note about two-way synchronization
+
+To prevent race conditions when synchronizing events from calendar A to calendar B and also from calendar B to calendar A, edit `StartCalendarInterval` in one of your two agents so they don't run simultaneously.
+For example, agent X may run hourly on the hour (8:00, 9:00, etc.) and agent Y may run with a few-minute offset (8:02, 9:02, etc.).
+
 ## Install a sync agent
 
 1. Move your `plist` file to your user's launch agents directory.
